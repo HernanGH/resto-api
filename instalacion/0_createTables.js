@@ -13,7 +13,9 @@ const crearTablaUsuarios = async () => {
       nombre VARCHAR(80) NOT NULL,
       apellido VARCHAR(80) NOT NULL,
       password VARCHAR(255) NOT NULL,
-      admin BOOLEAN NOT NULL DEFAULT FALSE
+      admin BOOLEAN NOT NULL DEFAULT FALSE,
+      fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      fecha_edicion TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
   `);
 };

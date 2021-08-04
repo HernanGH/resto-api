@@ -1,15 +1,13 @@
-var express = require('express');
-var cors = require('cors');
-var path = require('path');
-var logger = require('morgan');
+const express = require('express');
+const cors = require('cors');
+const logger = require('morgan');
 
-var conexion = require('./models/conexion');
+const indexRouter = require('./routes/index');
+const usuariosRouter = require('./routes/usuarios');
+const productosRouter = require('./routes/productos');
+const loginRouter = require('./routes/login');
 
-var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuarios');
-var productosRouter = require('./routes/productos');
-
-var app = express();
+const app = express();
 
 app.use(cors());
 app.use(logger('dev'));
@@ -18,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/v1/usuarios', usuariosRouter);
+app.use('/v1/login', loginRouter);
 app.use('/v1/productos', productosRouter);
 
 module.exports = app;
