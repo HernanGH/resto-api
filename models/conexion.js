@@ -1,12 +1,13 @@
-require('dotenv').config();
+require('dotenv').config(); // CARGAR LA VARIABLES DE ENTORNO DESDE EL ARCHIVO .ENV
+
+// INICIAMO SEQUELIZE
 const Sequelize = require('sequelize');
 
 const path = `mysql://root@${process.env.DATA_BASE_HOST}:${process.env.DATA_BASE_PORT}/${process.env.DATA_BASE_NAME}`;
-console.log(path);
 
 const sequelize = new Sequelize(path, { operatorsAliases: false });
 
-sequelize.authenticate()
+sequelize.authenticate() // METODO PARA CONECTARSE A LA DB
     .then(() => {
         console.log('Conectado.');
     })
