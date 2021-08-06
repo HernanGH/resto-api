@@ -1,9 +1,10 @@
 require('dotenv').config(); // CARGAR LA VARIABLES DE ENTORNO DESDE EL ARCHIVO .ENV
 
-// INICIAMO SEQUELIZE
+// INICIAMOS SEQUELIZE
 const Sequelize = require('sequelize');
+const config = require('../config');
 
-const path = `mysql://root@${process.env.DATA_BASE_HOST}:${process.env.DATA_BASE_PORT}/${process.env.DATA_BASE_NAME}`;
+const path = `mysql://root@${config.databaseHost}:${config.databasePort}/${config.databaseName}`;
 
 const sequelize = new Sequelize(path, { operatorsAliases: false });
 

@@ -10,6 +10,7 @@ const crearTablaUsuarios = async () => {
   await sequelize.query(`
     CREATE TABLE usuarios (
       id INT(11) AUTO_INCREMENT PRIMARY KEY,
+      mail VARCHAR(80) NOT NULL UNIQUE,
       nombre VARCHAR(80) NOT NULL,
       apellido VARCHAR(80) NOT NULL,
       password VARCHAR(255) NOT NULL,

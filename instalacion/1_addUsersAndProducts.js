@@ -17,9 +17,9 @@ const addUsers = async () => {
   await sequelize.query(`
     INSERT INTO usuarios
     (
-      nombre, apellido, password
+      nombre, apellido, mail, password
     ) VALUES (
-      'hernan', 'condori', '${passwordHasheada}'
+      'hernan', 'condori', 'hernan@mail.com', '${passwordHasheada}'
     );
   `);
 
@@ -28,9 +28,9 @@ const addUsers = async () => {
   await sequelize.query(`
     INSERT INTO usuarios
     (
-      nombre, apellido, password, admin
+      nombre, apellido, mail, password, admin
     ) VALUES (
-      'admin', 'admin', '${passwordAdminHasheada}', 1
+      'admin', 'admin', 'admin@mail.com', '${passwordAdminHasheada}', 1
     );
   `);
 };
